@@ -94,11 +94,10 @@ plt.show()
 
 The heatmap shows the Month-over-Month (MoM) retention rates for customer transactions, with the cohort months on the y-axis and cohort index (months since the first purchase) on the x-axis. Each cell in the heatmap represents the retention rate for a specific cohort month and cohort index (month since first purchase).
 ### Insights
-- High Retention for Early Cohort Months: The retention rate is consistently high for the first few months (cohort index 0–3), with all cohort months starting at or close to 100%. This suggests that customers remain engaged early after their first purchase.
 - Decline in Retention Over Time: There is a noticeable decline in retention as the cohort index increases. For example, by the 12th month, the retention rate drops significantly, with some cohorts experiencing a retention rate of less than 40%.
 - Varying Retention Across Cohorts: Cohorts from the earlier months (e.g., 2017-01, 2017-02) show slightly higher retention at later cohort indices (months 6-12) compared to cohorts from later months (e.g., 2017-09, 2017-10), suggesting a possible decrease in long-term customer retention over time.
 - Increased Retention for Specific Cohorts: The cohort from 2017-04 shows particularly strong retention in months 0–6, with retention rates above 40%, indicating that the customers who started their journey in April 2017 had a stronger engagement and retained better.
-### Recommendations:
+### Recommendations
 - Improve Long-Term Retention: To maintain high customer retention over the long term, consider launching loyalty programs or targeted re-engagement campaigns aimed at customers who are in their 6th month and beyond. Focus on driving more value to these customers to keep them engaged.
 Segment and Target Early Cohorts:
 - Cohorts with strong early retention (e.g., 2017-01, 2017-02) should be analyzed to understand what strategies contributed to their higher retention. Identifying these factors can help replicate success for newer cohorts.
