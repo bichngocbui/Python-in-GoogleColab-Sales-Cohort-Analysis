@@ -44,7 +44,50 @@ df = df[df['order_status'] == 'Approved'].dropna(subset=['order_status'])
 # Display the cleaned and filtered DataFrame  
 df
 ```
-![image](https://github.com/user-attachments/assets/50401bcb-7286-4f89-a701-97684b853099)
+![image](https://github.com/user-attachments/assets/3c434ce6-36f5-4509-a526-d41f7dfe0b5e)
+### Cohort calculation
+```python
+# Create a new column 'transaction_month' to extract the month and year from 'transaction_date' and convert it to the first day of that month as a timestamp  
+df['transaction_month'] = df['transaction_date'].dt.to_period('M').dt.to_timestamp()
+# Create a new column 'cohort_month' to identify the first transaction month for each customer, grouped by 'customer_id'  
+df['cohort_month'] = df.groupby('customer_id')['transaction_date'].transform(min).dt.to_period('M').dt.to_timestamp()
+# Calculate the 'cohort_index' column, representing the number of months elapsed since the customer's first transaction (cohort month)  
+df['cohort_index'] = ((df['transaction_month'].dt.year - df['cohort_month'].dt.year) * 12 +
+                      (df['transaction_month'].dt.month - df['cohort_month'].dt.month))
+# Display the DataFrame with the newly added cohort-related columns  
+df
+```
+![image](https://github.com/user-attachments/assets/b87356b3-6df1-4579-b66b-ee47f5ba7ae2)
 
+```python
+# Group the data by 'cohort_month' and 'cohort_index', and calculate the number of unique customers ('customer_id') in each cohort and time period  
+cohort_data = df.groupby(['cohort_month', 'cohort_index'])['customer_id'].nunique().reset_index()
+# Create a pivot table 
+cohort_table = cohort_data.pivot_table(index='cohort_month',    # Rows represent the 'cohort_month' (month of first transaction)
+                                       columns='cohort_index',  # Columns represent the 'cohort_index' (number of months since the first transaction)
+                                       values='customer_id')    # Values represent the number of unique customers  
+# Calculate the retention table by dividing each cohort's unique customer count by the cohort's initial count (month 0) to compute retention percentages, then multiplying by 100  
+retention_table = cohort_table.div(cohort_table[0], axis=0) * 100
+# Format the index of the retention table to display 'cohort_month' in the 'YYYY-MM' format  
+retention_table.index = retention_table.index.strftime('%Y-%m')
+```
+![image](https://github.com/user-attachments/assets/48fefb29-c4b6-4fbc-be71-add578b3360a)
 
-
+```python
+# Create a heatmap to visualize the retention table
+plt.figure(figsize=(12, 8))
+# Use Seaborn to plot the heatmap:
+sns.heatmap(retention_table,
+            annot=True,    # Data: 'retention_table'
+            fmt='.1f',     # Display values with one decimal place (fmt='.1f')
+            cmap='Blues',  # Color map: 'Blues'
+            vmin=0,        # Range of values: 0 to 100 (vmin=0, vmax=100)
+            vmax=100)
+# Add a title and axis labels for better understanding of the chart
+plt.title('MoM Retention Rate for Customer Transaction Data')
+plt.xlabel('Cohort Index (Months)')
+plt.ylabel('Cohort Month')
+# Show the heatmap
+plt.show()
+```
+![image](https://github.com/user-attachments/assets/e0cb9d00-a8a9-4a22-b577-5736b22b8443)
