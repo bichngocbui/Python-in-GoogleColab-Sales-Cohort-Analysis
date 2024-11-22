@@ -72,7 +72,7 @@ retention_table = cohort_table.div(cohort_table[0], axis=0) * 100
 retention_table.index = retention_table.index.strftime('%Y-%m')
 ```
 ![image](https://github.com/user-attachments/assets/48fefb29-c4b6-4fbc-be71-add578b3360a)
-
+### Visualization 
 ```python
 # Create a heatmap to visualize the retention table
 plt.figure(figsize=(12, 8))
