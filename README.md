@@ -94,6 +94,15 @@ plt.show()
 
 The heatmap shows the Month-over-Month (MoM) retention rates for customer transactions, with the cohort months on the y-axis and cohort index (months since the first purchase) on the x-axis. Each cell in the heatmap represents the retention rate for a specific cohort month and cohort index (month since first purchase).
 ### Insights
+- Declining Retention Across Cohorts: All cohorts show a significant drop in retention after the first month, which is a common trend. 
+- Consistency in Long-Term Retention: Across most cohorts, the retention rates stabilize between 30-40% in the later months. 
+- Seasonality Effect: Some cohorts, such as July 2017, exhibit better retention compared to others. This may indicate seasonal influences or successful engagement strategies during these months.
+- Drop-off Patterns: Retention sharply decreases after the first month in later cohorts (August–December 2017), with some showing retention below 30% by the second month. This could indicate either customer churn issues or a potential decline in the quality of acquired customers.
 ### Recommendations
+- Focus on Onboarding and Early Retention: The biggest drop occurs in the first month. Improve onboarding experiences by: Personalizing the journey for new customers,  Offering promotions or incentives in the first month to encourage continued engagement, Proactively addressing barriers to usage or satisfaction.
+- Target Churn Prevention: Build a strategy to re-engage customers showing signs of churn after the first or second month by: Sending tailored reminders or offers, Using personalized communication to keep customers engaged with the brand.
+- Analyze High-Retention Cohorts: Investigate why July 2017 has higher retention in months 4 and 5. Was a special campaign, feature, or service improvement implemented during that period? Use these findings to replicate success.
+- Refine Customer Acquisition: Cohorts from August to December show weaker retention early on. Review acquisition channels or campaigns during these months to ensure the quality of new customers aligns with long-term retention goals.
+- Segment Customers for Targeted Engagement: Use retention data to segment customers based on their activity patterns and focus on high-value segments with personalized offers and communication.
 
   
