@@ -104,9 +104,9 @@ The biggest drop occurs in the first month. Improve onboarding experiences by:
 - Personalizing the journey for new customers
 - Offering promotions or incentives in the first month to encourage continued engagement
 - Proactively addressing barriers to usage or satisfaction.
-#### Implementing proactive customer success programs
-- Analyze High-Retention Cohorts: Investigate why July 2017 has higher retention in months 4 and 5. Was a special campaign, feature, or service improvement implemented during that period? Use these findings to replicate success.
-- Refine Customer Acquisition: Cohorts from August to December show weaker retention early on. Review acquisition channels or campaigns during these months to ensure the quality of new customers aligns with long-term retention goals.
+#### Investigating Seasonal or External Factors
+- Analyze High-Retention Cohorts: Investigate why the cohort from July 2017 shows higher retention in months 4 and 5. Was there a special campaign, feature, or service improvement implemented during that period? Use these insights to replicate this success in other cohorts.
+- Analyze Low-Retention Cohorts: Cohorts from August to December show weaker retention in the early months. Review the acquisition channels or campaigns during these months to ensure the quality of new customers aligns with long-term retention goals.
 #### Developing segment-specific retention strategies
 Use retention data to segment customers based on their activity patterns and focus on high-value segments with personalized offers and communication.
 ## Conclusion
